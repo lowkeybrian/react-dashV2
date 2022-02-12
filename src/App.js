@@ -1,25 +1,30 @@
 import "./App.css";
 import styled from "styled-components";
-import Sidebar from "./components/Sidebar";
 import MainContent from "./components/MainContent";
+import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import AddUser from "./pages/AddUser";
+import RoomM from "./pages/RoomM";
+import UserM from "./pages/UserM";
+import FAQ from "./pages/FAQ";
+import Login from "./pages/Login";
+import Layout from "./Layout";
 
 function App() {
   return (
-    <Container>
-      <Sidebar />
-      <MainContent />
-    </Container>
+  <Router>
+  <Layout>
+    <Switch>
+      <Route path = "/" exact component={MainContent}/>
+      <Route path = "/login" exact component={Login}/>
+      <Route path = "/adduser" exact component={AddUser}/>
+      <Route path = "/roomm"  exact component={RoomM}/>
+      <Route path = "/userm" exact component={UserM}/>
+      <Route path = "/faq"  exact component={FAQ}/>
+    </Switch>
+  </Layout>
+  </Router>
   );
 }
 
-const Container = styled.div`
-  display: flex;
-  height: 97vh;
-  background: linear-gradient(to bottom right, white 0%, #e6e4ff 70%);
-  border-radius: 2rem;
-  @media screen and (min-width: 320px) and (max-width: 1080px) {
-    flex-direction: column;
-  }
-`;
 
 export default App;
