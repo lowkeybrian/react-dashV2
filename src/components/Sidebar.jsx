@@ -4,24 +4,11 @@ import { RiHomeLine} from "react-icons/ri";
 import { AiOutlineDatabase, AiOutlineUserAdd, AiOutlineIdcard, AiOutlineInfoCircle } from "react-icons/ai";
 import motion from "../assets/motion.jpg";
 import { darkThemeColor } from "../utils";
-import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AddUser from "../pages/AddUser";
-import RoomM from "../pages/RoomM";
-import UserM from "../pages/UserM";
-import FAQ from "../pages/FAQ";
-import App from "../App.js";
+import {Link} from "react-router-dom";
 
 
 function Sidebar() {
   return (
-    <Router>
-    <Routes>
-    <Route path = "/" element = {<App />} />
-    <Route path = "/AddUser" element = {<AddUser />} />
-    <Route path = "/UserM" element = {<UserM />} />
-    <Route path = "/RoomM" element = {<RoomM />} />
-    <Route path = "/FAQ" element = {<FAQ />} />
-    </Routes>
     <Container>
       <ProfileContainer>
         <Avatar src={motion} />
@@ -31,42 +18,57 @@ function Sidebar() {
         <Links>
           <Link1>
             <RiHomeLine />
-            <Link>
+            <Linkstyling>
+            <Link to = "/" style={{ textDecoration: 'none', color: 'white' }}>
               <h3>Dashboard</h3>
             </Link>
+            </Linkstyling>
           </Link1>
           <Link1>
             <AiOutlineUserAdd />
-            <Link>
+            <Linkstyling>
+            <Link to = "/adduser" style={{ textDecoration: 'none', color: 'white' }}>
             <h3>Add User</h3>
             </Link>
+            </Linkstyling>
           </Link1>
           <Link1>
             <AiOutlineIdcard />
+            <Linkstyling>
+            <Link to = "/userm" style={{ textDecoration: 'none', color: 'white' }}>
             <h3>User Management</h3>
+            </Link>
+            </Linkstyling>
           </Link1>
           <Link1>
             <AiOutlineDatabase />
+            <Linkstyling>
+            <Link to = "/roomm" style={{ textDecoration: 'none', color: 'white' }}>
             <h3>Room Management</h3>
+            </Link>
+            </Linkstyling>
           </Link1>
           <Link1>
             <AiOutlineInfoCircle />
+            <Linkstyling>
+            <Link to = "/login" style={{ textDecoration: 'none', color: 'white' }}>
             <h3>FAQ</h3>
+            </Link>
+            </Linkstyling>
           </Link1>
         </Links>
         <ContactContainer>
           <Stylespan1>
-           <span>LOGOUT</span>
+           <Button>LOGOUT</Button>
           </Stylespan1>
         </ContactContainer>
       </LinksContainer>
     </Container>
-</Router>
   );
 }
 
 const Container = styled.div`
-  width: 30rem;
+  width: 20rem;
   height: 100% !important;
   border-radius: 2rem;
   background-color: #091322;
@@ -74,10 +76,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  @media screen and (min-width: 320px) and (max-width: 1080px) {
-    width: 100%;
-    height: max-content !important;
-  }
 `;
 
 const ProfileContainer = styled.div`
@@ -117,7 +115,10 @@ const Links = styled.ul`
   height: 65%;
 `;
 
-const Link = styled.ul`
+const Linkstyling = styled.div`
+  hover 
+
+
 `;
 
 const Link1 = styled.li`
@@ -160,6 +161,18 @@ const ContactContainer = styled.div`
 const Stylespan1 = styled.div`
   text-align:center;
   font-size: 20px;
-  margin-top:2.5rem;
+  margin-top:1.3rem;
 `;
+
+const Button = styled.button`
+  background-color: #162349;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 7rem;
+  text-align:center;
+`;
+
 export default Sidebar;

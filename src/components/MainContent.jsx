@@ -27,7 +27,7 @@ const Flexcontainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  margin-left: 3rem;
+  margin-left: 5rem;
 `;
 
 const Navbaradjust = styled.div`

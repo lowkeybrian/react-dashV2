@@ -11,8 +11,8 @@ function AccessCountComp() {
 }
 
 const AccessCountComp1 = styled.div`
-  height: 25rem;
-  width: 47rem;
+  height: 20rem;
+  width: 37rem;
   background-color: white;
   margin-top: 1rem;
   padding: 1rem;
